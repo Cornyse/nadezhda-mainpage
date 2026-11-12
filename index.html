@@ -1997,13 +1997,36 @@ ul,ol {
  .equipment>.button { min-height:44px; margin-top:10px; }
  .equipment>.button .button__arrow { width:36px; height:36px; }
 }
+
+/* Full-width backgrounds with the original 1920px content boundary. */
+.page-main { max-width:none; width:100%; }
+.page-main > section { max-width:1920px; margin-inline:auto; }
+.section-background { width:100%; }
+.section-background--hero, .section-background--equipment { background:var(--gradient); }
+.section-background--footer { background:var(--dark); }
+.section-background > .hero, .section-background > .equipment, .section-background > .footer {
+  width:100%; max-width:1920px; margin-inline:auto; background:transparent;
+}
+@media (min-width:701px) {
+  .doctors__slider > .slider-arrow:last-child:disabled { background:var(--dark); }
+}
+@media (min-width:1001px) {
+  .equipment__stage { grid-template-columns:320rem 370rem 540rem 380rem 172rem 320rem; width:2100rem; }
+  .equipment__viewport > .equipment__drag { right:224rem; }
+}
+@media (min-width:701px) and (max-width:1000px) {
+  .equipment__stage { grid-template-columns:calc(320 * var(--e)) calc(370 * var(--e)) calc(540 * var(--e)) calc(380 * var(--e)) calc(172 * var(--e)) calc(320 * var(--e)); width:calc(2100 * var(--e)); }
+}
+
+
+@media (min-width:1001px) { .equipment__item--xray { grid-column:6; grid-row:1; } }
 </style></head>
 
 <body>
 <a class="skip-link" href="#main">К содержанию</a>
-<main id="main">
+<main id="main" class="page-main">
 
-<section class="hero" id="home" aria-label="Медицинский центр Надежда">
+<div class="section-background section-background--hero"><section class="hero" id="home" aria-label="Медицинский центр Надежда">
 
 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTU3MyIgaGVpZ2h0PSIxMzAzIiB2aWV3Qm94PSIwIDAgMTU3MyAxMzAzIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTQ2MSAxMzAzQzE1MzIuMjYgMTE3My44NiAxNTczIDEwMjAuMDcgMTU3MyA4NTguMzQxQzE1NzMgMzg0LjI5MiAxMjIwLjg3IDAgNzg2LjUgMEMzNTIuMTI4IDAgMCAzODQuMjkyIDAgODU4LjM0MUMwIDEwMjAuMDcgNDAuOTg3NyAxMTczLjg2IDExMi4yNDYgMTMwMyIgc3Ryb2tlPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="" class="hero__orbit" loading="lazy">
 
@@ -2060,7 +2083,7 @@ ul,ol {
 <button class="button" type="button" disabled title="Будет доступно после подключения записи или соответствующей страницы"><span>Записаться на прием</span><span class="button__arrow"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjIiIHZpZXdCb3g9Ii0yIC0yIDMwIDI2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMCAxMUgyNk0xNC44NTcxIDIyTDI2IDExTDE0Ljg1NzEgMCIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzJDMzc0OCIvPgo8L3N2Zz4K" alt="" class="" loading="lazy"></span></button>
 </div>
 
-</section>
+</section></div>
 
 <section class="about" id="about">
 
@@ -2224,7 +2247,7 @@ ul,ol {
 <button class="button" type="button" disabled title="Будет доступно после подключения записи или соответствующей страницы"><span>Перейти ко всем врачам</span><span class="button__arrow"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjIiIHZpZXdCb3g9Ii0yIC0yIDMwIDI2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMCAxMUgyNk0xNC44NTcxIDIyTDI2IDExTDE0Ljg1NzEgMCIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzJDMzc0OCIvPgo8L3N2Zz4K" alt="" class="" loading="lazy"></span></button>
 </section>
 
-<section class="equipment" id="equipment">
+<div class="section-background section-background--equipment"><section class="equipment" id="equipment">
 
 <p class="eyebrow">
 <span>С</span>овременное оборудование
@@ -2338,7 +2361,7 @@ ul,ol {
 
 </div><span class="equipment__drag" role="img" aria-label="Горизонтальное перемещение оборудования"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjcyIiBoZWlnaHQ9IjcyIiByeD0iMzYiIGZpbGw9IiMyQzM3NDgiLz4KPHBhdGggZD0iTTEzLjUgMzYuODY2QzEyLjgzMzMgMzYuNDgxMSAxMi44MzMzIDM1LjUxODkgMTMuNSAzNS4xMzRMMjguNSAyNi40NzM3QzI5LjE2NjcgMjYuMDg4OCAzMCAyNi41Njk5IDMwIDI3LjMzOTdMMzAgNDQuNjYwM0MzMCA0NS40MzAxIDI5LjE2NjcgNDUuOTExMiAyOC41IDQ1LjUyNjNMMTMuNSAzNi44NjZaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNTguNSAzNS4xMzRDNTkuMTY2NyAzNS41MTg5IDU5LjE2NjcgMzYuNDgxMSA1OC41IDM2Ljg2Nkw0My41IDQ1LjUyNjNDNDIuODMzMyA0NS45MTEyIDQyIDQ1LjQzMDEgNDIgNDQuNjYwM0w0MiAyNy4zMzk3QzQyIDI2LjU2OTkgNDIuODMzMyAyNi4wODg4IDQzLjUgMjYuNDczN0w1OC41IDM1LjEzNFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=" alt=""></span></div>
 <button class="button" type="button" disabled title="Будет доступно после подключения записи или соответствующей страницы"><span>Подробнее об аппарате</span><span class="button__arrow"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjIiIHZpZXdCb3g9Ii0yIC0yIDMwIDI2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMCAxMUgyNk0xNC44NTcxIDIyTDI2IDExTDE0Ljg1NzEgMCIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzJDMzc0OCIvPgo8L3N2Zz4K" alt="" class="" loading="lazy"></span></button>
-</section>
+</section></div>
 
 <section class="reviews" id="reviews">
 
@@ -2426,7 +2449,7 @@ ul,ol {
 
 </main>
 
-<footer class="footer" id="contacts">
+<div class="section-background section-background--footer"><footer class="footer" id="contacts">
 
 <div class="footer__top">
 
@@ -2508,7 +2531,7 @@ ul,ol {
 © 2026 ООО «ЧИНАРА-МЕДИЦИНСКИЙ ЦЕНТР НАДЕЖДА»
 </p>
 
-</footer>
+</footer></div>
 
 <script>
 const toggle = document.querySelector('.menu-toggle');
